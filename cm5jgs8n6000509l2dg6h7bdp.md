@@ -71,7 +71,7 @@ Whatever data comes in to your data source is chunked in to small pieces
 
 The chunked data is then embedded.**embedding** as a way to convert words, sentences, or even images into numbers that a computer can understand. Instead of storing words as plain text, we turn them into **vectors**
 
-The embedded data is now then taken to the vector store.e.g Open Search serverless
+The embedded data is now then taken to the vector store.e.g Open Search server less
 
 when one asks a query,a search is made at the knowledge base and still at the vector store
 
@@ -143,7 +143,7 @@ Pay-as-you-go, no commitment
 
 Pricing is based on input and output token count for LLMs
 
-Great for prototyping, POCs, and small workloads with more relaxed requirements for throughput and latency
+Great for prototyping, POCs, and small workloads with more relaxed requirements for throughput and /latency
 
 Requests per minute (RPM) and tokens per minute (TPM) limits enforced
 
