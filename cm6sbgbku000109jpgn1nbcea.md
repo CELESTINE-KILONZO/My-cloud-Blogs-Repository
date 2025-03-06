@@ -863,3 +863,34 @@ digkms.us-east-1.amazonaws.com
 ![](https://cdn.hashnode.com/res/hashnode/image/upload/v1738900049854/b14759df-1d84-4ee4-b7f6-63d4f53ad069.png align="center")
 
 # VPC PEERING
+
+# TRANSIT GATEWAY
+
+### 1\. Navigate to VPC dashboard and select Transit Gateway
+
+![Step 1 screenshot](https://images.tango.us/workflows/5a56b71b-51c2-4239-9563-ec74dfcc1d7f/steps/b591ad25-19c7-4a75-9ff8-e29762443801/cced930d-9aea-4a41-ae33-a25aa650a83d.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=19&mark-y=248&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0xNDImaD0xNzkmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D align="left")
+
+### 2.Configure the gateway
+
+![Step 2 screenshot](https://images.tango.us/workflows/5a56b71b-51c2-4239-9563-ec74dfcc1d7f/steps/ffc082a9-2b17-49d4-aed8-0049de1ce3a0/01a6d5a0-c2c8-4f4c-99ee-a6de302b39fb.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n align="left")
+
+### 3\. Here is our gateway
+
+![Step 3 screenshot](https://images.tango.us/workflows/5a56b71b-51c2-4239-9563-ec74dfcc1d7f/steps/f273f64e-658a-4355-b4e3-fa9c62eb9256/0f1d8fd8-6112-4eee-b323-c3d4ba7c350a.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=223&mark-y=161&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz05NjgmaD01NiZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw align="left")
+
+### 4\. Lets now attach our VPC to the transit gateway
+
+![Step 4 screenshot](https://images.tango.us/workflows/5a56b71b-51c2-4239-9563-ec74dfcc1d7f/steps/f0d0aa69-d2c6-4f65-afb6-2d6e90216e53/85042d9c-230d-41d1-b4b0-32d36481f340.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n align="left")
+
+![Step 5 screenshot](https://images.tango.us/workflows/5a56b71b-51c2-4239-9563-ec74dfcc1d7f/steps/47303adb-1db7-4b6c-a869-e0a303c6a918/6e69ebe9-809b-4874-b95b-8fc179252e77.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n align="left")
+
+## 5.We shall now modify the route table for the 3 vpcs
+
+![Step 6 screenshot](https://images.tango.us/workflows/5a56b71b-51c2-4239-9563-ec74dfcc1d7f/steps/4ace92a4-1c4b-49de-b15e-7c02cf7ccbcb/41b312f1-a73f-4fc2-9926-a959704df095.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=26&mark-y=325&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0yODMmaD0yOCZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw align="left")
+
+![Step 7 screenshot](https://images.tango.us/workflows/5a56b71b-51c2-4239-9563-ec74dfcc1d7f/steps/0697427b-4a79-42e7-99dd-1a143220a903/94bfa052-2a58-4e17-ad93-10459e7663aa.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=229&mark-y=339&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz05NjImaD0xMjcmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D align="left")
+
+###   
+6.SSH to the EC2 instance and test the connectivity
+
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1741200083986/b24053d6-15d2-4615-8ec1-51dc9f335318.png align="center")
