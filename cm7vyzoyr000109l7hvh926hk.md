@@ -113,4 +113,98 @@ This is a service which enables one to co
 
 ## DAY 2 OF WEEK 4
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1741235813802/5aa861f6-2562-45d6-8156-4f09f5b4a78c.png align="center")
+## S3 Storage Performance
+
+### a.Optimize throughput
+
+### 1\. SSH to your currently and then update it
+
+![Step 1 screenshot](https://images.tango.us/workflows/152f59ce-baf2-4f99-a85f-65e04163b0f8/steps/ab1bd21e-ef62-47a1-aadd-f71bb670c1b1/8f1958f7-872a-44d0-9f29-70592e5a5698.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n align="left")
+
+### 2\. Configure the AWS CLI S3 settings and after that confirm the CLI configuration.Finally create a create a 1GB file
+
+![Step 2 screenshot](https://images.tango.us/workflows/152f59ce-baf2-4f99-a85f-65e04163b0f8/steps/2e2faa85-89b2-485c-ba49-eee6a86860dc/42354485-06c0-4d6c-baed-9ec966754703.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n align="left")
+
+### 3\. Upload a 1 GB file to the S3 bucket using 1 thread,2 thread,10 thread and 20 threads and note the time difference.
+
+![Step 1 screenshot](https://images.tango.us/workflows/b1343072-3757-475a-a0ea-806d34996d45/steps/922f6f4b-b7ef-477f-a344-16bba9f426c2/f321d05b-2ec1-4c3f-982c-2d44c3495a82.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n align="left")
+
+### b.Optimizatin using Sync Command
+
+We gonna use sync command to synchronizes the contents of a bucket and a directory
+
+1.we wanna perform sync using 1 thread and 10 threads.We notice that multiple threads decreased the time needed to move the files.
+
+![Step 5 screenshot](https://images.tango.us/workflows/b1343072-3757-475a-a0ea-806d34996d45/steps/28d111a2-6a2a-4953-98c9-40cb32e5a1ed/cdaf684c-98cc-4aa1-b98e-4b38eee54dd6.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=319&mark-y=574&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0xMyZoPTE5JmZpdD1jcm9wJmNvcm5lci1yYWRpdXM9MTA%3D align="left")
+
+### c. Small files Operations
+
+Anyone gets bothered on the time to be taken for them to transfer data to S3.Transferring data in small files does it very fast.Lets demonstrate:
+
+### 1.create a text file that represents a list of object ids.The created files are 500
+
+![Step 6 screenshot](https://images.tango.us/workflows/b1343072-3757-475a-a0ea-806d34996d45/steps/e253c663-e43d-4d48-a4d1-1a60483ba08c/18c50d52-2b3d-443e-a3d7-25ea94a70df6.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n align="left")
+
+### 2\. Lets proceed and create a one KB file and upload 500 1KB files to S3 using 5 threads. Record the time to complete.
+
+![Step 7 screenshot](https://images.tango.us/workflows/b1343072-3757-475a-a0ea-806d34996d45/steps/0532ad73-54e1-4e60-8819-ff57c9a0cc93/605ca509-d336-4312-8e45-d8c6906267bb.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n align="left")
+
+### 3\. upload 500 1KB files to S3 using 15 threads,50 and 100 threads. Record the time to complete.
+
+![Step 8 screenshot](https://images.tango.us/workflows/b1343072-3757-475a-a0ea-806d34996d45/steps/2dbf56e5-b57c-48ed-996f-8637b003422d/166a2cb8-10ef-4ea1-8604-99382edd8846.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=3&mark-y=476&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0xMTc3Jmg9MTkmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D align="left")
+
+The higher the number of threads then the higher the performance
+
+![Step 10 screenshot](https://images.tango.us/workflows/b1343072-3757-475a-a0ea-806d34996d45/steps/db946d9f-2797-4f3f-aa98-009eef8a035d/a831c8ef-4b48-4677-b4ab-88656fb1ebce.png?crop=focalpoint&fit=crop&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n align="left")
+
+### d)Copy Operation
+
+### 1.Download a file from S3 and then upload it back using a different prefix
+
+![Step 11 screenshot](https://images.tango.us/workflows/b1343072-3757-475a-a0ea-806d34996d45/steps/457f5e1b-6183-4231-9c99-ccbea2d31ea0/75e5c4ef-7e2b-4fcc-8a33-8416059b5a90.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n align="left")
+
+### 2\. Now run the command below to copy objects in the bucket
+
+![Step 12 screenshot](https://images.tango.us/workflows/b1343072-3757-475a-a0ea-806d34996d45/steps/3222e635-2abb-4fc6-9b16-70b1cd684053/dc8ceb20-7907-4144-bbe2-198ddeb27fb2.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n align="left")
+
+### 3\. copy the file between S3 using a single command between locations
+
+![Step 13 screenshot](https://images.tango.us/workflows/b1343072-3757-475a-a0ea-806d34996d45/steps/eb1422eb-bd1e-457c-9a0c-82b3a0287fc2/684f9b3d-abc9-4267-afb1-6f54c2cbed5b.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n align="left")
+
+### e. EFS - Optimize IOPS
+
+1.Let us generate 1,024 zero byte files. Record time to complete,generate 1,024 zero byte files using multiple threads this time out and Record time to complete.lastly we are going to generate 1,024 zero byte files in multiple directories using multiple threads. Record time to complete.
+
+![Step 14 screenshot](https://images.tango.us/workflows/b1343072-3757-475a-a0ea-806d34996d45/steps/a7b821f9-87b3-4753-93a0-d97b5ae8eb89/3c30123b-e62d-44a8-8ec7-b11ed52cc99e.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n align="left")
+
+we finally conclude that the best way to make use of the distributed data storage design of Amazon EFS is to use multiple threads which makes it faster
+
+### EFS - I/O Size and Sync Frequency
+
+1.write a 2GB file to EFS using 1MB block size and sync once after each file. Record time to complete.
+
+write a 2 GB file to EFS using 16MB block size and sync once after each file. Record time to complete.
+
+write a 2GB file to EFS using 1MB block size and sync after each block. Record time to complete.
+
+write a 2 GB file to EFS using 16MB block size and sync after each block. Record time to complete.
+
+![Step 15 screenshot](https://images.tango.us/workflows/b1343072-3757-475a-a0ea-806d34996d45/steps/2141e092-de5e-4daf-aab2-b504fd96d39f/50449420-5c87-43fd-b9d2-6580a6ae0b35.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n align="left")
+
+we therefore draw a conclusion that Syncing after each block dramatically decreases the performance of the file system. Optimal performance is obtained by syncing after each file.
+
+### EFS - Multi-threaded
+
+1.write 2GB of data to EFS using 1MB block size and 4 threads. Record time to complete.
+
+![Step 16 screenshot](https://images.tango.us/workflows/b1343072-3757-475a-a0ea-806d34996d45/steps/225e36ed-f03b-415a-8c3c-cc326dd9802d/dd953c45-1a32-4c9b-94db-5ebe2d620c70.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n align="left")
+
+### 2.write 2GB of data to EFS using 1MB block size and 16 threads. Record time to complete.
+
+![Step 17 screenshot](https://images.tango.us/workflows/b1343072-3757-475a-a0ea-806d34996d45/steps/02224b43-eaa6-4d66-9c2c-52c4dce116c4/0a06370f-0a9e-439c-a3f2-a034e8ae06d1.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n align="left")
+
+we finally conclude that:By parallelization your writes to EFS by increasing the number of threads, you can increase the overall throughput and IOPS to EFS.
+
+## DAY 3 OF WEEK 4
+
+## AWS BACKUP
