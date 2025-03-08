@@ -209,7 +209,19 @@ we finally conclude that:By parallelization your writes to EFS by increasing the
 
 ## AWS BACKUP
 
-### 1\. Click on Create subscription
+A backup is a copy of data.Backups are very important as much as storage is concerned.You can imagine a scenario whereby a data company gets hacked and therefore loses all the data.This is a lose which cannot be recovered at all incase they do not have a back up.
+
+The architecture diagram below pre-empties what we are going to do in our lab.All our resources are going to be deployed using cloud formation.
+
+Lets get started🚀🚀
+
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1741391891201/5212e0fa-c1ca-497b-b55a-7d1575c1803f.png align="center")
+
+### 1.Click on 1-click set up to make our aws Config ready to evaluate our aws resource as we carry out the lab
+
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1741393247875/7bd78058-6f29-4382-9f5b-ab0dd9a9f493.png align="center")
+
+### 2\. Create a SNS together with the subscription which shall
 
 ![Step 1 screenshot](https://images.tango.us/workflows/27dc9aef-9c88-4939-a16c-c52c12c6e5e6/steps/b976a901-b87b-4582-be88-61635ed5ad24/104d1526-4f8e-4913-8024-fa92f8262e54.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=1032&mark-y=538&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0xNDEmaD0zMSZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw align="left")
 
