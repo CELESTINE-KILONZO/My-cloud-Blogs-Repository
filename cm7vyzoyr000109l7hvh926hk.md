@@ -211,6 +211,8 @@ we finally conclude that:By parallelization your writes to EFS by increasing the
 
 A backup is a copy of data.Backups are very important as much as storage is concerned.You can imagine a scenario whereby a data company gets hacked and therefore loses all the data.This is a lose which cannot be recovered at all incase they do not have a back up.
 
+AWS Backup Audit Manager provides backup governance control templates and backup activity reporting on your backup jobs, copy jobs, and restore jobs. These reports helps to improve visibility into backup activities for a single account and Region hence enabling one to monitor their operational posture and identify failures that may need further action.
+
 The architecture diagram below pre-empties what we are going to do in our lab.All our resources are going to be deployed using cloud formation.
 
 Lets get started🚀🚀
@@ -221,102 +223,96 @@ Lets get started🚀🚀
 
 ![](https://cdn.hashnode.com/res/hashnode/image/upload/v1741393247875/7bd78058-6f29-4382-9f5b-ab0dd9a9f493.png align="center")
 
-### 2\. Create a SNS together with the subscription which shall
+### 2\. Create a SNS together with the subscription which shall provide a notification
 
 ![Step 1 screenshot](https://images.tango.us/workflows/27dc9aef-9c88-4939-a16c-c52c12c6e5e6/steps/b976a901-b87b-4582-be88-61635ed5ad24/104d1526-4f8e-4913-8024-fa92f8262e54.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=1032&mark-y=538&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0xNDEmaD0zMSZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw align="left")
 
-### 2\. Click on Edit controls
+### 3\. Navigate to aws console,Select Backup and then create a framework
 
 ![Step 2 screenshot](https://images.tango.us/workflows/27dc9aef-9c88-4939-a16c-c52c12c6e5e6/steps/7c1bfd5e-9dda-4283-ad50-ce0a538a840e/a7d29949-7a44-4d7c-8725-fa2dd5abcce7.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=522&mark-y=335&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0xMDYmaD0zMSZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw align="left")
 
-### 3\. Click on Framework "framework01" has been created successfully.
+### 4\. Framework01 has been created successfully.Ensure that the framework is set up with back up minimum frequency and minimum retention
 
 ![Step 3 screenshot](https://images.tango.us/workflows/27dc9aef-9c88-4939-a16c-c52c12c6e5e6/steps/616d236f-6b69-4fbf-9034-234f2f91034b/00f19a7f-1d13-4c57-bc5f-ee2ee235182c.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=235&mark-y=39&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz05MzkmaD00NCZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw align="left")
 
-### 4\. Click on Backup plan "gold-backup-plan" creation successful. You can now add additional schedule rules and assign resources to the Backup plan by selecting the Backup plan.
+### 5\. Create a Backup plan named gold-backup-plan
 
 ![Step 4 screenshot](https://images.tango.us/workflows/27dc9aef-9c88-4939-a16c-c52c12c6e5e6/steps/ce366202-8b06-4cc7-8ddb-9968e8f591f7/2ad6a7da-0f69-4156-9cab-ebe9f48abb06.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=10&mark-y=32&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0xMTYzJmg9NDQmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D align="left")
 
-### 5\. Click on Assign resources
+### 6\. Click on Assign resources.Assigning tags will instruct AWS Backup to protect EBS volumes by identification based on the tag conditions using the AND operator.
 
 ![Step 5 screenshot](https://images.tango.us/workflows/27dc9aef-9c88-4939-a16c-c52c12c6e5e6/steps/3989fb18-d0e3-468f-b5e6-92e757d30a7a/e6d1dd69-a8f6-49ff-8e0e-906d98e659ab.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=505&mark-y=570&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0xMjkmaD0zMiZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw align="left")
 
-### 6\. Click on Tags
-
-![Step 6 screenshot](https://images.tango.us/workflows/27dc9aef-9c88-4939-a16c-c52c12c6e5e6/steps/6e5b4931-bdb8-4703-95aa-0e88e818e8f9/9025de53-a862-45c7-b328-a49610ce0c69.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=197&mark-y=402&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz05ODImaD0xNDcmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D align="left")
-
-### 7\. Click on Create on-demand backup
+### 7.Let us now create a On demand back-up. Click on Create on-demand backup for both our EFS and EBS.
 
 ![Step 7 screenshot](https://images.tango.us/workflows/27dc9aef-9c88-4939-a16c-c52c12c6e5e6/steps/c76b0a11-354b-4383-8146-06b161ef2bc4/3a4a3c68-f712-4d6c-a5d1-9bde1b318b6d.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=991&mark-y=52&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0xNzgmaD0zMSZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw align="left")
 
-### 8\. Click on Detach volume
+### 8.Finally click on create on demand button and be redirected to the AWS Backup **Jobs** page. You should see a new backup job starting for the EFS File System you selected. You will also receive an email notification from the SNS topic associated with the silver vault.
 
-![Step 8 screenshot](https://images.tango.us/workflows/27dc9aef-9c88-4939-a16c-c52c12c6e5e6/steps/5219d31c-12e1-4f15-8cc3-c5cdf80ba5ee/1898527d-b20f-450b-8efd-ece52d3f159c.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n align="left")
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1741396426941/9e42466b-797d-45c4-a45e-e01f1904763e.png align="center")
 
-### 9\. Click on Detach
-
-![Step 9 screenshot](https://images.tango.us/workflows/27dc9aef-9c88-4939-a16c-c52c12c6e5e6/steps/bc4ab54e-0eaa-4874-9bf8-e2d07a69d6a8/6c9dc348-65da-41c7-b551-32fd6a2b8d4f.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n align="left")
-
-### 10\. Click on Delete volume
-
-![Step 10 screenshot](https://images.tango.us/workflows/27dc9aef-9c88-4939-a16c-c52c12c6e5e6/steps/ba6775f0-f148-40e6-9734-4557ad848683/775204ad-4104-4cd8-802c-5def63f5bf61.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n align="left")
-
-### 11\. Click on removed '/var/www/html/EFS/00114.jpg'
+### 9\. Navigate to the EC2 instance and connect to the instance named sid web server and removed all the fie in it.
 
 ![Step 11 screenshot](https://images.tango.us/workflows/27dc9aef-9c88-4939-a16c-c52c12c6e5e6/steps/7594de63-d8b0-4123-a800-92839749ddd8/a446bfa2-584e-41d9-a250-43f8dc6375db.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n align="left")
 
-### 12\. Select 16-1741314792466-19
+### 10\. Finally right click on the instance called the sid web server
+
+![Step 8 screenshot](https://images.tango.us/workflows/27dc9aef-9c88-4939-a16c-c52c12c6e5e6/steps/5219d31c-12e1-4f15-8cc3-c5cdf80ba5ee/1898527d-b20f-450b-8efd-ece52d3f159c.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n align="left")
+
+### 11\. Detatch the EBS volume from the instance
+
+![Step 9 screenshot](https://images.tango.us/workflows/27dc9aef-9c88-4939-a16c-c52c12c6e5e6/steps/bc4ab54e-0eaa-4874-9bf8-e2d07a69d6a8/6c9dc348-65da-41c7-b551-32fd6a2b8d4f.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n align="left")
+
+### 12\. Click on Delete volume.At this point the content is missing upon testing the instance on a web browser.
+
+![Step 10 screenshot](https://images.tango.us/workflows/27dc9aef-9c88-4939-a16c-c52c12c6e5e6/steps/ba6775f0-f148-40e6-9734-4557ad848683/775204ad-4104-4cd8-802c-5def63f5bf61.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n align="left")
+
+### 13\. let’s restore the information that was just deleted
 
 ![Step 12 screenshot](https://images.tango.us/workflows/27dc9aef-9c88-4939-a16c-c52c12c6e5e6/steps/84dc89a5-5a1b-4a03-be1b-bc262cea834a/7773a68e-4faf-4683-9b55-67b384f0b832.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=257&mark-y=384&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0xOSZoPTE5JmZpdD1jcm9wJmNvcm5lci1yYWRpdXM9MTA%3D align="left")
 
-### 13\. Click on Restore backup
+### 14\. Click on Restore backup
 
 ![Step 13 screenshot](https://images.tango.us/workflows/27dc9aef-9c88-4939-a16c-c52c12c6e5e6/steps/753691b8-9ff3-4c7b-9587-3f623c865a0e/ae0cc282-8635-41f9-be8e-ab133115b89c.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=742&mark-y=544&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0xMjEmaD0zMSZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw align="left")
 
-### 14\. Select 29-1741315187712-1907
+### 14\. select the job whose information has just been deleted
 
 ![Step 14 screenshot](https://images.tango.us/workflows/27dc9aef-9c88-4939-a16c-c52c12c6e5e6/steps/bbbf47c9-9a8c-4f78-a5da-836e3aa8bb2a/d45b4c9b-0a0d-413f-9be5-4b6f5508bd11.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=257&mark-y=293&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0xOSZoPTE5JmZpdD1jcm9wJmNvcm5lci1yYWRpdXM9MTA%3D align="left")
 
-### 15\. Click on Create volume from snapshot
+### 15\. Click on Create volume from snapshot and then click on restore back up
 
 ![Step 15 screenshot](https://images.tango.us/workflows/27dc9aef-9c88-4939-a16c-c52c12c6e5e6/steps/29b292da-60cf-4b5f-9fef-ae0333f12665/17292f63-080e-4181-936a-f13fd6352e0a.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n align="left")
 
-### 16\. Click on Notifications
+### 16\. the volume was finally created
 
 ![Step 16 screenshot](https://images.tango.us/workflows/27dc9aef-9c88-4939-a16c-c52c12c6e5e6/steps/6b9475c0-2410-46d4-9eaf-30ddcbbc5f3c/dbf5feba-b4be-467b-aa8e-e16d726f3c94.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=193&mark-y=29&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz05OTgmaD0zNCZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw align="left")
 
-### 17\. Click on Attach volume
+### 17\. Attach volume to the sid web server and then confirm that all the information is accessible from the EFS and EBS restores
 
 ![Step 17 screenshot](https://images.tango.us/workflows/27dc9aef-9c88-4939-a16c-c52c12c6e5e6/steps/d07fe2e4-e73a-4fa7-aff9-0dbccf8477aa/b353cd41-72a4-4863-81f6-40b5463121f5.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=1053&mark-y=404&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0xMzImaD0zMSZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw align="left")
 
-### 18\. Click on Compliance status Controls 11 Compliant controls Non-compliant controls
+### 18\. Lets now check which framework is non compliant
 
 ![Step 18 screenshot](https://images.tango.us/workflows/27dc9aef-9c88-4939-a16c-c52c12c6e5e6/steps/c5b06cb3-1dc7-4fbd-8e16-18df4aab7806/a494c44f-84d0-4b64-b105-cc591dff4cd6.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=937&mark-y=118&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0yMjAmaD0xODQmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D align="left")
 
-### 19\. Click on ID Type Status Annotation Compliance 37896025-64d6-4326-9054-25470573b4f0 Backup BackupPlan - Could not find rule that matched/exceeded required frequency of 1 hours and required retention of 30 days.
-
-![Step 19 screenshot](https://images.tango.us/workflows/27dc9aef-9c88-4939-a16c-c52c12c6e5e6/steps/f5e4dee7-f56f-468f-9585-3dbe1d09d4d8/02c2aa18-fdb2-4794-a296-a337725da250.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=285&mark-y=564&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0yNTgmaD0zOCZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw align="left")
-
-### 20\. Click on Add backup rule
+### 19\. Click on Add backup rule and configure the rule
 
 ![Step 20 screenshot](https://images.tango.us/workflows/27dc9aef-9c88-4939-a16c-c52c12c6e5e6/steps/f845b0ec-9bb1-44b7-8be7-e666a92aff93/5cd4e607-3d4a-4549-9bee-b8c12852ac60.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n align="left")
 
-### 21\. Click on Add backup rule
+### 20\. Click on Add backup rule
 
 ![Step 21 screenshot](https://images.tango.us/workflows/27dc9aef-9c88-4939-a16c-c52c12c6e5e6/steps/0d452785-2e94-4afa-a669-2628c6809bf1/dddddda0-57ed-4294-8682-6db604cfaa90.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=519&mark-y=537&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0xMjYmaD0zMSZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw align="left")
 
-### 22\. Click on ID…
+### 21\. at the resource scope none of our frameworks is non compliant upon adding the rule
 
 ![Step 22 screenshot](https://images.tango.us/workflows/27dc9aef-9c88-4939-a16c-c52c12c6e5e6/steps/2252303a-1bee-4eb3-8d9f-5573ed3ce66d/d95f468d-1d3a-49a4-8dc7-010094a6fba1.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=246&mark-y=573&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz05MDYmaD0zNyZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw align="left")
 
-### 23\. Click on Compliance status Controls 11 Compliant controls Non-compliant controls
-
 ![Step 23 screenshot](https://images.tango.us/workflows/27dc9aef-9c88-4939-a16c-c52c12c6e5e6/steps/d17ce9ab-e98a-4ea5-bd47-5aaba59bb1a8/bcdf283e-5b4e-41df-b187-2d9696c80497.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=937&mark-y=79&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz0yMjAmaD0xODQmZml0PWNyb3AmY29ybmVyLXJhZGl1cz0xMA%3D%3D align="left")
 
-### 24\. Click on Create report plan
+### 22\. Click on Create report plan
 
 ![Step 24 screenshot](https://images.tango.us/workflows/27dc9aef-9c88-4939-a16c-c52c12c6e5e6/steps/da904da7-5563-4385-b6de-8f3cfea85268/febde3ef-56d5-4fe1-a6a1-4227d9959f40.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n align="left")
 
-### 25\. Click on Report plans
+### 23\. This is a report of compliance and it can be sent to the compliance team
 
 ![Step 25 screenshot](https://images.tango.us/workflows/27dc9aef-9c88-4939-a16c-c52c12c6e5e6/steps/eb198f6d-3b1d-4985-9124-509dd6ab7712/f7f97fa4-9590-4eb8-be57-b12b0502b998.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=227&mark-y=482&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz05NzEmaD05OCZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw align="left")
