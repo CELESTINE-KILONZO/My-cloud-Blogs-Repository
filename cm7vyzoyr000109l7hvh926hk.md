@@ -316,3 +316,7 @@ Lets get started🚀🚀
 ### 23\. This is a report of compliance and it can be sent to the compliance team
 
 ![Step 25 screenshot](https://images.tango.us/workflows/27dc9aef-9c88-4939-a16c-c52c12c6e5e6/steps/eb198f6d-3b1d-4985-9124-509dd6ab7712/f7f97fa4-9590-4eb8-be57-b12b0502b998.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&w=1200&border=2%2CF4F2F7&border-radius=8%2C8%2C8%2C8&border-radius-inner=8%2C8%2C8%2C8&blend-align=bottom&blend-mode=normal&blend-x=0&blend-w=1200&blend64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmstdjIucG5n&mark-x=227&mark-y=482&m64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL2JsYW5rLnBuZz9tYXNrPWNvcm5lcnMmYm9yZGVyPTMlMkNGRjc0NDImdz05NzEmaD05OCZmaXQ9Y3JvcCZjb3JuZXItcmFkaXVzPTEw align="left")
+
+## DAY 4 OF WEEK 4
+
+## Migrating Data To AWS
